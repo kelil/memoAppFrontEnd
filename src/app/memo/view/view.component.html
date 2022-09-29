@@ -1,0 +1,76 @@
+<div class="container py-3">
+    <div class="d-flex justify-content-end py-3">
+        <a href="" class="btn btn-primary" [routerLink]="['create']">Create New</a>
+    </div>
+    <table id="datatableexample" class="table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+            <tr>
+                <th>Request Name</th>
+                <th>Subject</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Cc</th>
+                <th>Requested By</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let memo of memos">
+                <td *ngIf="memo">{{memo.name}}</td>
+                <td *ngIf="memo">{{memo.subject}}</td>
+                <td *ngIf="memo.from">{{memo.from.name}}</td>
+                <td *ngIf="memo.to">{{memo.to.name}}</td>
+                <td>
+                    <ul>
+                        <li *ngFor="let cc of memo.cc">
+                            <span *ngIf="cc"></span>{{cc.name}}
+                        </li>
+                    </ul>
+                </td>
+                <td *ngIf="memo.requestedBy">{{memo.requestedBy.givenName}} {{memo.requestedBy.fatherName}}
+                    {{memo.requestedBy.grandFatherName}}</td>
+                <td><a (click)="printMemo(memo)" class="btn btn-outline-secondary">
+                        <fa-icon [icon]="faPrint"></fa-icon>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<div class="container">
+    <table id="dataT" class="table table-stripped table-bordered mydatatable" style="width: 100%">
+
+        <thead>
+            <tr>
+              <!-- <th scope="col">Emp_Id</th> -->
+              <th scope="col">Id</th>
+              <th scope="col">coopId</th>
+              <th scope="col">fullName</th>
+      
+      
+              <th scope="col">phoneNo</th>
+              <th scope="col">email</th>
+              <th scope="col">division</th>
+      
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+           
+            <tr *ngFor="let d of dataT"> 
+              <td>{{d.id}}</td>
+              <td>{{d.name}}</td>
+              <td>  {{d.lname}}</td>
+      
+              <td>{{d.id}}</td>
+              <td>{{d.name}}</td>
+              <td>{{d.lname}}</td>
+              <td>
+                {{d.id}}
+              </td>
+            </tr>
+           
+          </tbody>
+    </table>
+</div>

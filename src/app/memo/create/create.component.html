@@ -1,0 +1,66 @@
+<div class="container jumbotron">
+    <div class="d-flex justify-content-center">
+        <h4>Create Memo</h4>
+    </div>
+    <br>
+    <div class="d-flex justify-content-center">
+        <form name="form" class="row" #f="ngForm" (ngSubmit)="createMemo()">
+            <div class="form-group row col-sm-6">
+                <label for="name" class="col-sm-3 col-form-label">Request Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="form.name" id="name" name="name"
+                        placeholder="Request">
+                </div>
+            </div>
+            <div class="form-group row col-sm-6">
+                <label for="subject" class="col-sm-3 col-form-label">Subject</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" [(ngModel)]="form.subject" id="subject" name="subject"
+                        placeholder="Subject">
+                </div>
+            </div>
+
+            <div class="form-group row col-sm-6">
+                <label for="from" class="col-sm-3 col-form-label">From</label>
+                <div class="col-sm-9">
+    
+                    <ng-select [items]="divisions" bindLabel="name"  [ngModelOptions]="{standalone: true}" [(ngModel)]="form.from" placeholder="Select From">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row col-sm-6">
+                <label for="to" class="col-sm-3 col-form-label">To</label>
+                <div class="col-sm-9">
+                    <ng-select [items]="divisions" bindLabel="name" [ngModelOptions]="{standalone: true}" [(ngModel)]="form.to" placeholder="Select To">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row col-sm-6">
+                <label for="cc" class="col-sm-3 col-form-label">Cc</label>
+                <div class="col-sm-9">
+                    <ng-select class="custom" [closeOnSelect]="false"  [ngModelOptions]="{standalone: true}" [items]="divisions" [searchable]="true" [selectOnTab]="true" bindLabel="name" [multiple]="true"  [(ngModel)]="form.cc" placeholder="Select Cc">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row col-sm-6">
+                <label for="requestedBy" class="col-sm-3 col-form-label">Requested By</label>
+                <div class="col-sm-9">
+                    <ng-select [items]="employees" bindLabel="fullName"  [ngModelOptions]="{standalone: true}" [(ngModel)]="form.requestedBy" placeholder="Select Requested By">
+                    </ng-select>
+                </div>
+            </div>
+            <div class="form-group row col-sm-6">
+                <label for="sign" class="col-sm-3 col-form-label">Signature</label>
+                <div class="col-sm-9">
+                    <input type="text" class="form-control" name="signiture" [(ngModel)]="form.signiture" id="sign"
+                        placeholder="Signature">
+                </div>
+            </div>
+            <div class="form-group float-right">
+                <input type="submit" class="btn btn-outline-primary btn-md" value="Create">
+            </div>
+
+        </form>
+    </div>
+
+</div>
